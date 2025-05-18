@@ -14,3 +14,5 @@ In rough terms
 5. Refactor People and TodoItems as of UML Diagram below.
 6. Implement your Interfaces and make sure they work well with you Database.
 UML DIAGRAM
+
+![image](https://github.com/user-attachments/assets/a0e9f94a-cac0-4314-858a-7af7d9e19627)
