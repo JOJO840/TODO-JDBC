@@ -1,16 +1,42 @@
 package org.lexicon;
 
 import org.lexicon.dao.People;
+import org.lexicon.dao.TodoItems;
 import org.lexicon.dao.impl.PeopleJdbcImpl;
+import org.lexicon.dao.impl.TodoItemsJdbcImpl;
 import org.lexicon.model.Person;
+import org.lexicon.model.TodoItem;
 
+import java.time.LocalDate;
 import java.util.Collection;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        testingjdbcImpl();
+//        testingjdbcImpl();
+
+        TodoItems todoDao = new TodoItemsJdbcImpl();
+        TodoItem t1 = new TodoItem( "Finish JDBC Project",
+                "Implement all DAO methods and test in Main.",
+                LocalDate.now().plusDays(3),
+                false,1);
+
+//        TodoItem savedTodo = todoDao.create(t1);
+
+//        // Step 4: Print saved item
+//        System.out.println(savedTodo != null
+//                ? "✅ TodoItem created: " + savedTodo
+//                : "❌ Failed to create TodoItem");
+        
+        Collection<TodoItem> todoDaoAll = todoDao.findAll();
+        todoDaoAll.forEach(todoItem -> System.out.println("todoItem = " + todoItem));
+
+        TodoItem found =  todoDao.findById(1);
+        System.out.println(found != null ? found : "❌ No TodoItem found with that ID.");
+
+
+
 
     }
 
